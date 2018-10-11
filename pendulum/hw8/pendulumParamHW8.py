@@ -16,7 +16,7 @@ beta = (2 * sigma - Ts) / (2 * sigma + Ts)  # dirty derivative gain
 #       PD Control: Time Design Strategy
 ####################################################
 # tuning parameters
-tr_th = 0.35          # Rise time for inner loop (theta)
+tr_th = 0.5          # Rise time for inner loop (theta)
 zeta_th = 0.707       # Damping Coefficient for inner loop (theta)
 M = 20.0              # Time scale separation between inner and outer loop
 zeta_z = 0.707        # Damping Coefficient fop outer loop (z)
@@ -30,9 +30,9 @@ theta_max = 30.0*np.pi/180.0  # Max theta, rads
 #                    Inner Loop
 #---------------------------------------------------
 # parameters of the open loop transfer function
-b0_th = -2.0/(P.m2*(P.ell/2.0))
+b0_th = -2.0/(P.m2*(P.ell))
 a1_th = 0.0
-a0_th = -2.0*(P.m1+P.m2)*P.g/(P.m2*(P.ell/2.0))
+a0_th = -2.0*(P.m1+P.m2)*P.g/(P.m2*(P.ell))
 
 # coefficients for desired inner loop
 # Delta_des(s) = s^2 + alpha1*s + alpha0 = s^2 + 2*zeta*wn*s + wn^2

@@ -5,7 +5,7 @@ import numpy as np
 plt.ion()  # enable interactive drawing
 
 
-class plotData:
+class pendulumPlotData:
     ''' 
         This class plots the time histories for the pendulum data.
     '''

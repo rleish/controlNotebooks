@@ -8,9 +8,9 @@ from PDControl import PDControl
 
 class armController:
 
-    def __init__(self):
+    def __init__(self, kp=P.kp,kd=P.kd):
         # Instantiates the PD object
-        self.thetaCtrl = PDControl(P.kp, P.kd, P0.tau_max, P.beta, P.Ts)
+        self.thetaCtrl = PDControl(kp, kd, P0.tau_max, P.beta, P.Ts)
         self.limit = P0.tau_max
 
     def u(self, y_r, y):

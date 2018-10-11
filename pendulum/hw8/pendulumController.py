@@ -6,10 +6,10 @@ class pendulumController:
         This class inherits other controllers in order to organize multiple controllers.
     '''
 
-    def __init__(self):
+    def __init__(self,kp_th=P.kp_th,kd_th=P.kd_th,kp_z=P.kp_z,kd_z=P.kd_z):
         # Instantiates the SS_ctrl object
-        self.zCtrl = PDControl(P.kp_z, P.kd_z, P.theta_max, P.beta, P.Ts)
-        self.thetaCtrl = PDControl(P.kp_th, P.kd_th, P.F_max, P.beta, P.Ts)
+        self.zCtrl = PDControl(kp_z, kd_z, P.theta_max, P.beta, P.Ts)
+        self.thetaCtrl = PDControl(kp_th, kd_th, P.F_max, P.beta, P.Ts)
 
     def u(self, y_r, y):
         # y_r is the referenced input

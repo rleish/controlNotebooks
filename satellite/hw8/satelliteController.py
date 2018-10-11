@@ -6,10 +6,11 @@ class satelliteController:
         This class inherits other controllers in order to organize multiple controllers.
     '''
 
-    def __init__(self):
+    def __init__(self,kp_th=P.kp_th,kd_th=P.kd_th,kp_ph=P.kp_phi,kd_ph=P.kd_phi):
         # Instantiates the SS_ctrl object
-        self.phiCtrl = PDControl(P.kp_phi, P.kd_phi, P.theta_max, P.beta, P.Ts)
-        self.thetaCtrl = PDControl(P.kp_th, P.kd_th, P.tau_max, P.beta, P.Ts)
+        # Allow the user to add other than the default gains
+        self.phiCtrl = PDControl(kp_ph, kd_ph, P.theta_max, P.beta, P.Ts)
+        self.thetaCtrl = PDControl(kp_th, kd_th, P.tau_max, P.beta, P.Ts)
 
     def u(self, y_r, y):
         # y_r is the referenced input

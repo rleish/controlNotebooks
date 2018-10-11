@@ -7,7 +7,7 @@ from armDynamics import armDynamics
 from armController import armController
 from signalGenerator import signalGenerator
 from armAnimation import armAnimation
-from plotData import plotData
+from armPlotData import armPlotData
 
 # instantiate arm, controller, and reference classes
 arm = armDynamics()
@@ -15,7 +15,7 @@ ctrl = armController()
 reference = signalGenerator(amplitude=30*np.pi/180.0, frequency=0.05)
 
 # instantiate the simulation plots and animation
-dataPlot = plotData()
+dataPlot = armPlotData()
 animation = armAnimation()
 
 t = P.t_start  # time starts at t_start

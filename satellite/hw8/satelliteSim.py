@@ -7,7 +7,7 @@ from satelliteDynamics import satelliteDynamics
 from satelliteController import satelliteController
 from signalGenerator import signalGenerator
 from satelliteAnimation import satelliteAnimation
-from plotData import plotData
+from satellitePlotData import satellitePlotData
 
 # instantiate satellite, controller, and reference classes
 satellite = satelliteDynamics()
@@ -18,7 +18,7 @@ reference = signalGenerator(amplitude=15.0*np.pi/180.0, frequency=0.02)
 disturbance = 0.0
 
 # instantiate the simulation plots and animation
-dataPlot = plotData()
+dataPlot = sateullitePlotData()
 animation = satelliteAnimation()
 
 t = P.t_start  # time starts at t_start

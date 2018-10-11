@@ -6,7 +6,7 @@ from pendulumDynamics import pendulumDynamics
 from pendulumController import pendulumController
 from signalGenerator import signalGenerator
 from pendulumAnimation import pendulumAnimation
-from plotData import plotData
+from pendulumPlotData import pendululmPlotData
 
 # instantiate pendulum, controller, and reference classes
 pendulum = pendulumDynamics()
@@ -14,7 +14,7 @@ ctrl = pendulumController()
 reference = signalGenerator(amplitude=0.5, frequency=0.02)
 
 # instantiate the simulation plots and animation
-dataPlot = plotData()
+dataPlot = pendulumPlotData()
 animation = pendulumAnimation()
 
 t = P.t_start  # time starts at t_start
