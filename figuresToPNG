@@ -64,15 +64,19 @@ path2="${path}/2_design_models/figures"
 path3="${path}/3_PID/figures"
 path4="${path}/4_observer_based/figures"
 path5="${path}/5_loopshaping/figures"
+path6="${path}/6_design_studies/figures"
 #path6="${path}/"
 folder1="figures_1"
 folder2="figures_2"
 folder3="figures_3"
 folder4="figures_4"
 folder5="figures_5"
+folder6="figures_hw"
 
-paths=($path1 $path2 $path3 $path4 $path5)
-folders=($folder1 $folder2 $folder3 $folder4 $folder5)
+#paths=($path1 $path2 $path3 $path4 $path5 $path6)
+paths=($path6)
+#folders=($folder1 $folder2 $folder3 $folder4 $folder5 $folder6)
+folders=($folder6)
 
 #echo ${paths[*]}
 for i in ${!paths[@]}; do
