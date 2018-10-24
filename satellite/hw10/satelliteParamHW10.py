@@ -15,10 +15,10 @@ tau_max = P.tau_max
 #       PD Control: Time Design Strategy
 ####################################################
 # tuning parameters 
-tr_phi = 7.0  # rise time for outer loop
-zeta_phi = 0.707  # damping ratio for outer loop
-M = 10.0  # time scale separation between inner and outer loop
-zeta_th = 0.707  # damping ratio for inner loop
+tr_phi = 5.0  # rise time for outer loop
+zeta_phi = 0.90  # damping ratio for outer loop
+M = 7.0  # time scale separation between inner and outer loop
+zeta_th = 0.8  # damping ratio for inner loop
 ki_phi = 0.25  # integral gain for outer loop
 theta_max = 30.0*np.pi/180.0  # maximum commanded base angle
 

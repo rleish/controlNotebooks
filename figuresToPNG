@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# This script finds the .pdf figure files for the Control Book, converts them to .png files
+# and then places them in an appropriate folder for use by the jupyter notebooks
+# This script should be run from the notebooks directory and needs to be pointed to the 
+# controlbook directory in their Dropbox folder. 
+
+#Main input arguments: 
+#1: Path to the Dropbox controlbook folder (default ~/Dropbox/controlbook)
+
+# Function to loop through to do the work. 
+convertPDF () {
+    # This function expects 2 arguments: 
+    #1 - path to the folder with the pdf figures
+    #2 - name for the folder you want to1 put the png files in
+    
+    echo "Converting files in folder $2"
+    for file in `find $1 -iname "*.pdf"`;
+    do
+      echo $file;
+      #temp=`echo $file | cut -d "/" -f 8-`;
+      #echo $temp
+      filename=$(basename -- "$file" .pdf);
+      echo $filename
+      convert -density 200 $file -quality 90 "${filename}.png";
+    done
+    
+    # Move the png files to the appropriate folder
+    if [ -d $2 ]; then
+        #echo "This is a Directory!!"
+        mv *.png "./$2";
+    else
+        #echo "NOT DIRECTORY!"
+        mkdir $2
+        mv *.png "./$2";
+    fi
+    
+}
+
+
+testFileName () {
+
+    echo $1
+    echo "./$1"
+    
+
+}
+
+echo "Finding .pdf files to convert to .png images" 
+echo "Searching for Dropbox in: "
+path=''
+if [ "$1" != "" ]; then
+    #echo "Positional parameter 1 contains something"
+    path=$1
+else
+    echo "No path provided, using default search path: /home/rleishman/Dropbox/controlbook"
+    path="/home/rleishman/Dropbox/controlbook"
+fi
+
+# Go through each of the module files and convert and move all the pdf figures
+#section 1: 
+path1="${path}/1_sim_models/figures"
+path2="${path}/2_design_models/figures"
+path3="${path}/3_PID/figures"
+path4="${path}/4_observer_based/figures"
+path5="${path}/5_loopshaping/figures"
+#path6="${path}/"
+folder1="figures_1"
+folder2="figures_2"
+folder3="figures_3"
+folder4="figures_4"
+folder5="figures_5"
+
+paths=($path1 $path2 $path3 $path4 $path5)
+folders=($folder1 $folder2 $folder3 $folder4 $folder5)
+
+#echo ${paths[*]}
+for i in ${!paths[@]}; do
+    #echo ${paths[$i]}
+    #echo ${folders[$i]}
+    convertPDF ${paths[$i]} ${folders[$i]}
+    #testFileName ${folders[$i]}
+done
+
